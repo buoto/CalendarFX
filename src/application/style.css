@@ -1,0 +1,27 @@
+.root {
+    -fx-font-size: 16px;
+}
+
+GridPane * {
+    -fx-max-width:2000px;
+    -fx-max-height:2000px;
+    -fx-alignment: center;
+
+    -fx-font-family: monospace;
+    -fx-text-fill: #00008F;
+}
+
+.dayname {
+    -fx-background-color: #CBCBE8;
+}
+
+.button {
+    -fx-font-size: 12px;
+    -fx-background-color: #CBCBE8;
+}
+
+.button--prev {
+}
+
+.button--next {
+}
