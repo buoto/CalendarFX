@@ -38,7 +38,7 @@
     <Button mnemonicParsing="false" onAction="#prev" styleClass="button--prev" text="prev" GridPane.columnIndex="8"/>
 
 
-    <Label styleClass="weekname" text="${controller.day.name}" GridPane.hgrow="NEVER" GridPane.rowIndex="1"
+    <Label styleClass="weekname" GridPane.hgrow="NEVER" GridPane.rowIndex="1"
            GridPane.vgrow="NEVER"/>
     <DayComponent GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="day0"/>
     <DayComponent GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="day1"/>
