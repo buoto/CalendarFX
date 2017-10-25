@@ -16,7 +16,7 @@ public class FxCalendar extends Application {
         scene.getStylesheets().add(getClass()
                 .getResource("style.css").toExternalForm());
 
-        primaryStage.setTitle("ERES1337");
+        primaryStage.setTitle("ERES3");
         primaryStage.setScene(scene);
 
         primaryStage.show();

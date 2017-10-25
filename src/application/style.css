@@ -2,26 +2,53 @@
     -fx-font-size: 16px;
 }
 
-GridPane * {
+.root * {
+    -fx-text-fill: #00008F;
+    -fx-font-family: monospace;
+
     -fx-max-width:2000px;
     -fx-max-height:2000px;
-    -fx-alignment: center;
 
-    -fx-font-family: monospace;
-    -fx-text-fill: #00008F;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
 }
 
-.dayname {
+.weekdayname,
+.weekname {
+    -fx-alignment: center;
     -fx-background-color: #CBCBE8;
 }
 
 .button {
     -fx-font-size: 12px;
-    -fx-background-color: #CBCBE8;
+    -fx-background-color: #CBE5E5;
 }
 
 .button--prev {
 }
 
 .button--next {
+}
+
+.day {
+    -fx-border-color: black;
+}
+
+.day__name,
+.day__event {
+    -fx-alignment: top-center;
+    -fx-font-size: 9px;
+}
+
+.day__name {
+    -fx-border-color: black;
+}
+
+.day__event {
+    -fx-border-color: teal;
+    -fx-text-fill: teal;
+}
+
+.day__events {
+    -fx-spacing: 1px;
 }
