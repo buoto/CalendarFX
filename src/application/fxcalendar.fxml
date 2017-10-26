@@ -9,22 +9,22 @@
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="2.0" vgap="2.0"
           xmlns="http://javafx.com/javafx/8" fx:controller="application.CalendarController">
     <columnConstraints>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="5.0"/>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS"/>
-        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="5.0"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="6.25"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="12.5"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="12.5"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="12.5"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="12.5"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="12.5"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="12.5"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="12.5"/>
+        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="6.25"/>
     </columnConstraints>
     <rowConstraints>
         <RowConstraints percentHeight="10.0" vgrow="ALWAYS"/>
-        <RowConstraints vgrow="ALWAYS"/>
-        <RowConstraints vgrow="ALWAYS"/>
-        <RowConstraints vgrow="ALWAYS"/>
-        <RowConstraints vgrow="ALWAYS"/>
+        <RowConstraints percentHeight="20.0" vgrow="ALWAYS"/>
+        <RowConstraints percentHeight="20.0" vgrow="ALWAYS"/>
+        <RowConstraints percentHeight="20.0" vgrow="ALWAYS"/>
+        <RowConstraints percentHeight="20.0" vgrow="ALWAYS"/>
         <RowConstraints percentHeight="10.0" vgrow="ALWAYS"/>
     </rowConstraints>
     <Button mnemonicParsing="false" onAction="#prev" styleClass="button--prev" text="prev"/>

@@ -4,13 +4,14 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
 public class Day {
     private final StringProperty name;
-    private final ListProperty<PlannedEvent> events = new SimpleListProperty<>();
+    private final ListProperty<PlannedEvent> events = new SimpleListProperty<>(FXCollections.observableArrayList());
 
     public Day(String name) {
         this.name = new SimpleStringProperty(name);

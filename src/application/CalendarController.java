@@ -1,6 +1,7 @@
 package application;
 
 import application.model.Day;
+import application.model.PlannedEvent;
 import application.model.store.Store;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ public class CalendarController implements Initializable {
     @FXML
     private ArrayList<DayComponent> dayComponents;
     private Store store;
+    private ArrayList<Day> days;
 
     public CalendarController(Store store) {
         this.store = store;
@@ -23,6 +25,7 @@ public class CalendarController implements Initializable {
 
     public void prev(ActionEvent actionEvent) {
         System.out.println("prev");
+        days.get(1).getEvents().add(new PlannedEvent("costam"));
     }
 
     public void next(ActionEvent actionEvent) {
@@ -31,7 +34,7 @@ public class CalendarController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Day> days = store.getDaysWithToday();
+        days = store.getDaysWithToday();
 
         Iterator<DayComponent> it = dayComponents.iterator();
         for (Day day : days) {

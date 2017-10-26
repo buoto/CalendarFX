@@ -5,7 +5,5 @@
 <fx:root xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8"
          styleClass="day">
     <Label styleClass="day__name" fx:id="dayname" text="${controller.day.name}"/>
-    <VBox styleClass="day__events">
-        <Label styleClass="day__event" text="Label"/>
-    </VBox>
+    <VBox styleClass="day__events"/>
 </fx:root>

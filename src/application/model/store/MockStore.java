@@ -1,6 +1,7 @@
 package application.model.store;
 
 import application.model.Day;
+import application.model.PlannedEvent;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -21,8 +22,11 @@ public class MockStore implements Store {
         ArrayList<Day> days = new ArrayList<>();
         LocalDate date = LocalDate.now().with(DayOfWeek.MONDAY);
         for (int i = 0; i < DAYS_COUNT; i++) {
-            days.add(new Day(date.plusDays(i).format(DateTimeFormatter.ofPattern("d MMMM")))); // TODO day name String -> LocalDate
+            days.add(new Day(date.plusDays(i).format(DateTimeFormatter.ofPattern("MMMM d")))); // TODO day name String -> LocalDate
         }
+
+        days.get(1).eventsProperty().add(new PlannedEvent("costam"));
+
         return days;
     }
 }
