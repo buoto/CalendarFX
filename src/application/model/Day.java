@@ -11,22 +11,22 @@ import java.util.ArrayList;
 
 public class Day {
     private final StringProperty name;
-    private final ListProperty<PlannedEvent> events = new SimpleListProperty<>(FXCollections.observableArrayList());
+    private final ListProperty<Appointment> events = new SimpleListProperty<>(FXCollections.observableArrayList());
 
     public Day(String name) {
         this.name = new SimpleStringProperty(name);
     }
 
-    public Day(String name, ArrayList<PlannedEvent> events) {
+    public Day(String name, ArrayList<Appointment> events) {
         this(name);
         this.events.addAll(events);
     }
 
-    public ObservableList<PlannedEvent> getEvents() {
+    public ObservableList<Appointment> getEvents() {
         return events.get();
     }
 
-    public ListProperty<PlannedEvent> eventsProperty() {
+    public ListProperty<Appointment> eventsProperty() {
         return events;
     }
 

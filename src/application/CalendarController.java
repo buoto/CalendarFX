@@ -1,7 +1,7 @@
 package application;
 
+import application.model.Appointment;
 import application.model.Day;
-import application.model.PlannedEvent;
 import application.model.store.Store;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,7 +25,7 @@ public class CalendarController implements Initializable {
 
     public void prev(ActionEvent actionEvent) {
         System.out.println("prev");
-        days.get(1).getEvents().add(new PlannedEvent("costam"));
+        days.get(1).getEvents().add(new Appointment("costam"));
     }
 
     public void next(ActionEvent actionEvent) {

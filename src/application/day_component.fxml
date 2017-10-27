@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.VBox?>
-<fx:root xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8"
-         styleClass="day">
-    <Label styleClass="day__name" fx:id="dayname" text="${controller.day.name}"/>
-    <VBox styleClass="day__events"/>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" styleClass="day" type="javafx.scene.layout.VBox"
+         xmlns="http://javafx.com/javafx/8.0.121">
+    <Label fx:id="dayname" styleClass="day__name" text="${controller.day.name}"/>
+    <ListView fx:id="appointmentsListView" styleClass="day__appointments" items="${controller.day.events}"
+              onMouseClicked="#handleAppointmentsClick"/>
 </fx:root>

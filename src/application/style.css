@@ -35,7 +35,7 @@
 }
 
 .day__name,
-.day__event {
+.day__appointment {
     -fx-alignment: top-center;
     -fx-font-size: 9px;
 }
@@ -44,11 +44,17 @@
     -fx-border-color: black;
 }
 
-.day__event {
+.list-cell {
+    -fx-padding: 0;
+    -fx-min-height: 0;
+    -fx-background-color: white;
+}
+
+.day__appointment {
     -fx-border-color: teal;
     -fx-text-fill: teal;
 }
 
-.day__events {
+.day__appointments {
     -fx-spacing: 1px;
 }
