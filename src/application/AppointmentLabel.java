@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 public class AppointmentLabel extends Label {
 
     public AppointmentLabel(Appointment appointment) {
-        this.setText(appointment.getName());
+        this.textProperty().bindBidirectional(appointment.nameProperty());
         this.getStyleClass().add("day__appointment");
     }
 

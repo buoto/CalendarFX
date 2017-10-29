@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class MockStore implements Store {
@@ -23,11 +22,11 @@ public class MockStore implements Store {
         ArrayList<Day> days = new ArrayList<>();
         LocalDate date = LocalDate.now().with(DayOfWeek.MONDAY);
         for (int i = 0; i < DAYS_COUNT; i++) {
-            days.add(new Day(date.plusDays(i).format(DateTimeFormatter.ofPattern("MMMM d")))); // TODO day name String -> LocalDate
+            days.add(new Day(date.plusDays(i)));
         }
 
-        days.get(1).eventsProperty().add(new Appointment("FooBar"));
-        days.get(0).eventsProperty().setValue(FXCollections.observableArrayList());
+        days.get(1).appointmentsProperty().add(new Appointment("FooBar"));
+        days.get(0).appointmentsProperty().setValue(FXCollections.observableArrayList());
 
         return days;
     }

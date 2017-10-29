@@ -1,40 +1,33 @@
 package application.model;
 
 import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Day {
-    private final StringProperty name;
-    private final ListProperty<Appointment> events = new SimpleListProperty<>(FXCollections.observableArrayList());
+    private final ObjectProperty<LocalDate> date;
+    private final ListProperty<Appointment> appointments = new SimpleListProperty<>(FXCollections.observableArrayList());
 
-    public Day(String name) {
-        this.name = new SimpleStringProperty(name);
+    public Day(LocalDate date) {
+        this.date = new SimpleObjectProperty<>(date);
     }
 
-    public Day(String name, ArrayList<Appointment> events) {
-        this(name);
-        this.events.addAll(events);
+    public ObservableList<Appointment> getAppointments() {
+        return appointments.get();
     }
 
-    public ObservableList<Appointment> getEvents() {
-        return events.get();
+    public ListProperty<Appointment> appointmentsProperty() {
+        return appointments;
     }
 
-    public ListProperty<Appointment> eventsProperty() {
-        return events;
-    }
-
-    public String getName() {
-        return name.get();
-    }
-
-    public StringProperty nameProperty() {
-        return name;
+    @Override
+    public String toString() {
+        return date.get().format(DateTimeFormatter.ofPattern("MMMM d"));
     }
 }

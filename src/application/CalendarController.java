@@ -25,7 +25,7 @@ public class CalendarController implements Initializable {
 
     public void prev(ActionEvent actionEvent) {
         System.out.println("prev");
-        days.get(1).getEvents().add(new Appointment("costam"));
+        days.get(1).getAppointments().add(new Appointment("costam"));
     }
 
     public void next(ActionEvent actionEvent) {

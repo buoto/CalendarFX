@@ -69,7 +69,14 @@ public class DayComponent extends VBox {
 
     private void openAppointmentWindow(Appointment appointment, String windowTitle) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("appointment_details.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("appointment_details.fxml"));
+            Parent root = loader.load();
+            AppointmentDetails appointmentDetails = loader.getController();
+            appointmentDetails.setDay(day.get());
+            if (appointment != null) {
+                appointmentDetails.setAppointment(appointment);
+            }
+
             Stage stage = new Stage();
             stage.setTitle(windowTitle);
             stage.setScene(new Scene(root, 450, 450));
