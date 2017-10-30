@@ -23,13 +23,13 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <TextField promptText="Appointment name" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" fx:id="name"/>
-    <Label text="Start start" GridPane.rowIndex="1"/>
-    <TextField alignment="CENTER_RIGHT" promptText="hh" GridPane.rowIndex="2"/>
-    <TextField promptText="mm" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Label text="Start time" GridPane.rowIndex="1"/>
+    <TextField alignment="CENTER_RIGHT" promptText="hh" GridPane.rowIndex="2" fx:id="startTimeHour"/>
+    <TextField promptText="mm" GridPane.columnIndex="2" GridPane.rowIndex="2" fx:id="startTimeMinute"/>
     <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-    <Label text="End start" GridPane.rowIndex="3"/>
-    <TextField alignment="CENTER_RIGHT" promptText="hh" GridPane.rowIndex="5"/>
-    <TextField promptText="mm" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+    <Label text="End time" GridPane.rowIndex="3"/>
+    <TextField alignment="CENTER_RIGHT" promptText="hh" GridPane.rowIndex="5" fx:id="endTimeHour"/>
+    <TextField promptText="mm" GridPane.columnIndex="2" GridPane.rowIndex="5" fx:id="endTimeMinute"/>
     <Label layoutX="255.0" layoutY="95.0" text=":" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
     <Button mnemonicParsing="false" text="Delete" GridPane.rowIndex="6" onAction="#handleDelete"/>
     <HBox alignment="TOP_RIGHT" spacing="10.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT"

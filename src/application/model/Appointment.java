@@ -45,6 +45,10 @@ public class Appointment {
         return name;
     }
 
+    public void setStart(LocalDateTime start) {
+        this.start.set(start);
+    }
+
     public LocalDateTime getStart() {
         return start.get();
     }
@@ -55,7 +59,16 @@ public class Appointment {
 
     public StringBinding timeStringBinding() {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("HH:mm");
-        return Bindings.createStringBinding(() -> getStart().format(format) + "-" + getEnd().format(format), start, end);
+        return Bindings.createStringBinding(() -> {
+            if (getStart() != null && getEnd() != null) {
+                return getStart().format(format) + "-" + getEnd().format(format);
+            }
+            return "";
+        }, start, end);
+    }
+
+    public void setEnd(LocalDateTime end) {
+        this.end.set(end);
     }
 
     public LocalDateTime getEnd() {

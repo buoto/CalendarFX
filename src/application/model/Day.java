@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Day {
     private final ObjectProperty<LocalDate> date;
+
     private final ListProperty<Appointment> appointments = new SimpleListProperty<>(FXCollections.observableArrayList());
 
     public Day(LocalDate date) {
