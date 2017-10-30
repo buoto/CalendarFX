@@ -39,7 +39,7 @@
 
 
     <Label styleClass="weekname" GridPane.hgrow="NEVER" GridPane.rowIndex="1"
-           GridPane.vgrow="NEVER"/>
+           GridPane.vgrow="NEVER" text="${controller.firstWeekname}"/>
     <DayComponent GridPane.columnIndex="1" GridPane.rowIndex="1" fx:id="day0"/>
     <DayComponent GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="day1"/>
     <DayComponent GridPane.columnIndex="3" GridPane.rowIndex="1" fx:id="day2"/>
@@ -47,9 +47,9 @@
     <DayComponent GridPane.columnIndex="5" GridPane.rowIndex="1" fx:id="day4"/>
     <DayComponent GridPane.columnIndex="6" GridPane.rowIndex="1" fx:id="day5"/>
     <DayComponent GridPane.columnIndex="7" GridPane.rowIndex="1" fx:id="day6"/>
-    <Label styleClass="weekname" text="Label" GridPane.columnIndex="8" GridPane.rowIndex="1"/>
+    <Label styleClass="weekname" text="${controller.firstWeekname}" GridPane.columnIndex="8" GridPane.rowIndex="1"/>
 
-    <Label styleClass="weekname" text="Label" GridPane.rowIndex="2"/>
+    <Label styleClass="weekname" text="${controller.secondWeekname}" GridPane.rowIndex="2"/>
     <DayComponent GridPane.columnIndex="1" GridPane.rowIndex="2" fx:id="day7"/>
     <DayComponent GridPane.columnIndex="2" GridPane.rowIndex="2" fx:id="day8"/>
     <DayComponent GridPane.columnIndex="3" GridPane.rowIndex="2" fx:id="day9"/>
@@ -57,9 +57,9 @@
     <DayComponent GridPane.columnIndex="5" GridPane.rowIndex="2" fx:id="day11"/>
     <DayComponent GridPane.columnIndex="6" GridPane.rowIndex="2" fx:id="day12"/>
     <DayComponent GridPane.columnIndex="7" GridPane.rowIndex="2" fx:id="day13"/>
-    <Label styleClass="weekname" text="Label" GridPane.columnIndex="8" GridPane.rowIndex="2"/>
+    <Label styleClass="weekname" text="${controller.secondWeekname}" GridPane.columnIndex="8" GridPane.rowIndex="2"/>
 
-    <Label styleClass="weekname" text="Label" GridPane.rowIndex="3"/>
+    <Label styleClass="weekname" text="${controller.thirdWeekname}" GridPane.rowIndex="3"/>
     <DayComponent GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="day14"/>
     <DayComponent GridPane.columnIndex="2" GridPane.rowIndex="3" fx:id="day15"/>
     <DayComponent GridPane.columnIndex="3" GridPane.rowIndex="3" fx:id="day16"/>
@@ -67,9 +67,9 @@
     <DayComponent GridPane.columnIndex="5" GridPane.rowIndex="3" fx:id="day18"/>
     <DayComponent GridPane.columnIndex="6" GridPane.rowIndex="3" fx:id="day19"/>
     <DayComponent GridPane.columnIndex="7" GridPane.rowIndex="3" fx:id="day20"/>
-    <Label styleClass="weekname" text="Label" GridPane.columnIndex="8" GridPane.rowIndex="3"/>
+    <Label styleClass="weekname" text="${controller.thirdWeekname}" GridPane.columnIndex="8" GridPane.rowIndex="3"/>
 
-    <Label styleClass="weekname" text="Label" GridPane.rowIndex="4"/>
+    <Label styleClass="weekname" text="${controller.fourthWeekname}" GridPane.rowIndex="4"/>
     <DayComponent GridPane.columnIndex="1" GridPane.rowIndex="4" fx:id="day21"/>
     <DayComponent GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="day22"/>
     <DayComponent GridPane.columnIndex="3" GridPane.rowIndex="4" fx:id="day23"/>
@@ -77,7 +77,7 @@
     <DayComponent GridPane.columnIndex="5" GridPane.rowIndex="4" fx:id="day25"/>
     <DayComponent GridPane.columnIndex="6" GridPane.rowIndex="4" fx:id="day26"/>
     <DayComponent GridPane.columnIndex="7" GridPane.rowIndex="4" fx:id="day27"/>
-    <Label styleClass="weekname" text="Label" GridPane.columnIndex="8" GridPane.rowIndex="4"/>
+    <Label styleClass="weekname" text="${controller.fourthWeekname}" GridPane.columnIndex="8" GridPane.rowIndex="4"/>
 
     <Button mnemonicParsing="false" onAction="#next" styleClass="button--next" text="next" GridPane.rowIndex="5"/>
     <Label styleClass="weekdayname" text="Monday" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
