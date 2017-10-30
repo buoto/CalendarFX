@@ -11,8 +11,4 @@ public class AppointmentLabel extends Label {
         this.getStyleClass().add("day__appointment");
     }
 
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }

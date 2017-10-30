@@ -45,12 +45,12 @@ public class Appointment {
         return name;
     }
 
-    public void setStart(LocalDateTime start) {
-        this.start.set(start);
-    }
-
     public LocalDateTime getStart() {
         return start.get();
+    }
+
+    public void setStart(LocalDateTime start) {
+        this.start.set(start);
     }
 
     public ObjectProperty<LocalDateTime> startProperty() {
@@ -67,12 +67,12 @@ public class Appointment {
         }, start, end);
     }
 
-    public void setEnd(LocalDateTime end) {
-        this.end.set(end);
-    }
-
     public LocalDateTime getEnd() {
         return end.get();
+    }
+
+    public void setEnd(LocalDateTime end) {
+        this.end.set(end);
     }
 
     public ObjectProperty<LocalDateTime> endProperty() {

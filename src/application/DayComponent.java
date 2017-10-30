@@ -90,11 +90,11 @@ public class DayComponent extends VBox {
         return day.get();
     }
 
-    public ObjectProperty<Day> dayProperty() {
-        return day;
-    }
-
     public void setDay(Day day) {
         this.day.set(day);
+    }
+
+    public ObjectProperty<Day> dayProperty() {
+        return day;
     }
 }

@@ -59,10 +59,10 @@ public class AppointmentDetails implements Initializable {
             }
             return null;
         };
-        startTimeHour.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, hourFilter));
-        startTimeMinute.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, minuteFilter));
-        endTimeHour.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, hourFilter));
-        endTimeMinute.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, minuteFilter));
+        startTimeHour.setTextFormatter(new TextFormatter<>(new IntegerStringConverter(), null, hourFilter));
+        startTimeMinute.setTextFormatter(new TextFormatter<>(new IntegerStringConverter(), null, minuteFilter));
+        endTimeHour.setTextFormatter(new TextFormatter<>(new IntegerStringConverter(), null, hourFilter));
+        endTimeMinute.setTextFormatter(new TextFormatter<>(new IntegerStringConverter(), null, minuteFilter));
     }
 
     public void handleDelete(ActionEvent actionEvent) {

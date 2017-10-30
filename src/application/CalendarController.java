@@ -18,14 +18,14 @@ import java.util.ResourceBundle;
 
 public class CalendarController implements Initializable {
 
-    @FXML
-    private ArrayList<DayComponent> dayComponents;
-    private Store store;
     public final StringProperty firstWeekname = new SimpleStringProperty("");
     public final StringProperty secondWeekname = new SimpleStringProperty("");
     public final StringProperty thirdWeekname = new SimpleStringProperty("");
     public final StringProperty fourthWeekname = new SimpleStringProperty("");
     private final ListProperty<Day> days = new SimpleListProperty<>(FXCollections.observableArrayList());
+    private final Store store;
+    @FXML
+    private ArrayList<DayComponent> dayComponents;
 
 
     public CalendarController(Store store) {
