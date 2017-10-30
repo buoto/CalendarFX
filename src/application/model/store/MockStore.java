@@ -25,7 +25,9 @@ public class MockStore implements Store {
             days.add(new Day(date.plusDays(i)));
         }
 
-        days.get(1).appointmentsProperty().add(new Appointment("FooBar"));
+        LocalDate secondDate = days.get(1).getDate();
+        days.get(1).appointmentsProperty()
+                .add(new Appointment("FooBar", secondDate.atTime(10, 20), secondDate.atTime(11, 40)));
         days.get(0).appointmentsProperty().setValue(FXCollections.observableArrayList());
 
         return days;

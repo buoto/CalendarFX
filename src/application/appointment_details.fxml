@@ -23,11 +23,11 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
     <TextField promptText="Appointment name" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" fx:id="name"/>
-    <Label text="Start time" GridPane.rowIndex="1"/>
+    <Label text="Start start" GridPane.rowIndex="1"/>
     <TextField alignment="CENTER_RIGHT" promptText="hh" GridPane.rowIndex="2"/>
     <TextField promptText="mm" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
     <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-    <Label text="End time" GridPane.rowIndex="3"/>
+    <Label text="End start" GridPane.rowIndex="3"/>
     <TextField alignment="CENTER_RIGHT" promptText="hh" GridPane.rowIndex="5"/>
     <TextField promptText="mm" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
     <Label layoutX="255.0" layoutY="95.0" text=":" GridPane.columnIndex="1" GridPane.rowIndex="5"/>

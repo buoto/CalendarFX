@@ -18,6 +18,14 @@ public class Day {
         this.date = new SimpleObjectProperty<>(date);
     }
 
+    public LocalDate getDate() {
+        return date.get();
+    }
+
+    public ObjectProperty<LocalDate> dateProperty() {
+        return date;
+    }
+
     public ObservableList<Appointment> getAppointments() {
         return appointments.get();
     }
