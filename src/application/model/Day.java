@@ -6,9 +6,11 @@ import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 
 public class Day {
     private final ObjectProperty<LocalDate> date;
@@ -33,6 +35,10 @@ public class Day {
 
     public ListProperty<Appointment> appointmentsProperty() {
         return appointments;
+    }
+
+    public SortedList<Appointment> getSortedAppointments() {
+        return appointments.sorted(Comparator.comparing(Appointment::getStart));
     }
 
     @Override

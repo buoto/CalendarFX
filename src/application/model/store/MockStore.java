@@ -2,7 +2,6 @@ package application.model.store;
 
 import application.model.Appointment;
 import application.model.Day;
-import javafx.collections.FXCollections;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -28,7 +27,6 @@ public class MockStore implements Store {
         LocalDate secondDate = days.get(1).getDate();
         days.get(1).appointmentsProperty()
                 .add(new Appointment("FooBar", secondDate.atTime(10, 20), secondDate.atTime(11, 40)));
-        days.get(0).appointmentsProperty().setValue(FXCollections.observableArrayList());
 
         return days;
     }

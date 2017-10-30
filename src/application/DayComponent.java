@@ -93,5 +93,4 @@ public class DayComponent extends VBox {
     public void setDay(Day day) {
         this.day.set(day);
     }
-
 }

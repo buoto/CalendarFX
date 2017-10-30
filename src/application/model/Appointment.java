@@ -24,8 +24,8 @@ public class Appointment {
 
     public Appointment() {
         this.name = new SimpleStringProperty();
-        this.start = new SimpleObjectProperty<>();
-        this.end = new SimpleObjectProperty<>();
+        this.start = new SimpleObjectProperty<>(LocalDateTime.MIN);
+        this.end = new SimpleObjectProperty<>(LocalDateTime.MIN);
     }
 
     @Override
