@@ -30,59 +30,47 @@ public class CalendarController implements Initializable {
 
     public CalendarController(Store store) {
         this.store = store;
-        firstWeekname.bind(Bindings.createStringBinding(() -> {
-            if (days.size() != 28) {
-                return "";
-            }
-            return String.format("W%02d\n%d",
-                    days.get(0).getDate().getDayOfYear() / 7,
-                    days.get(0).getDate().getYear()
-            );
-        }, days));
 
-        secondWeekname.bind(Bindings.createStringBinding(() -> {
-            if (days.size() != 28) {
-                return "";
-            }
-            return String.format("W%02d\n%d",
-                    days.get(7).getDate().getDayOfYear() / 7,
-                    days.get(7).getDate().getYear()
-            );
-        }, days));
-        thirdWeekname.bind(Bindings.createStringBinding(() -> {
-            if (days.size() != 28) {
-                return "";
-            }
-            return String.format("W%02d\n%d",
-                    days.get(14).getDate().getDayOfYear() / 7,
-                    days.get(14).getDate().getYear()
-            );
-        }, days));
-        fourthWeekname.bind(Bindings.createStringBinding(() -> {
-            if (days.size() != 28) {
-                return "";
-            }
-            return String.format("W%02d\n%d",
-                    days.get(21).getDate().getDayOfYear() / 7,
-                    days.get(21).getDate().getYear()
-            );
-        }, days));
+        firstWeekname.bind(Bindings.createStringBinding(() -> getWeekname(0), days));
+        secondWeekname.bind(Bindings.createStringBinding(() -> getWeekname(1), days));
+        thirdWeekname.bind(Bindings.createStringBinding(() -> getWeekname(2), days));
+        fourthWeekname.bind(Bindings.createStringBinding(() -> getWeekname(3), days));
+    }
+
+    private String getWeekname(int weekNumber) {
+        int dayNumber = weekNumber * 7;
+        if (days.size() <= dayNumber) {
+            return "";
+        }
+        return String.format("W%02d\n%d",
+                days.get(dayNumber).getDate().getDayOfYear() / 7 + 1,
+                days.get(dayNumber).getDate().getYear()
+        );
     }
 
     public void prev(ActionEvent actionEvent) {
-        System.out.println("prev"); // TODO
+        setDays(store.getDays(days.get(0).getDate().minusWeeks(1)));
     }
 
     public void next(ActionEvent actionEvent) {
-        System.out.println("next"); // TODO
+        setDays(store.getDays(days.get(0).getDate().plusWeeks(1)));
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        days.addAll(store.getDaysWithToday());
+        ArrayList<Day> daysWithToday = store.getDaysWithToday();
+        setDays(daysWithToday);
+    }
+
+    private void setDays(ArrayList<Day> daysWithToday) {
+        days.clear();
+        days.addAll(daysWithToday);
 
         int i = 0;
         for (DayComponent day : dayComponents) {
+            if (day.dayProperty().isBound()) {
+                day.dayProperty().unbind();
+            }
             day.dayProperty().bind(Bindings.valueAt(days, i++));
         }
     }

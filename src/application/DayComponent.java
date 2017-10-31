@@ -64,7 +64,7 @@ public class DayComponent extends VBox {
     }
 
     private void openEditAppointmentWindow(Appointment appointment) {
-        openAppointmentWindow(appointment, "Edit appoitment");
+        openAppointmentWindow(appointment, "Edit appointment");
     }
 
     private void openAppointmentWindow(Appointment appointment, String windowTitle) {

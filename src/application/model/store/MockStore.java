@@ -12,16 +12,10 @@ public class MockStore implements Store {
     private static final int DAYS_COUNT = 28;
 
     @Override
-    public ArrayList<Day> getDays(int startWeek) {
-        return getDaysWithToday(); // TODO
-    }
-
-    @Override
-    public ArrayList<Day> getDaysWithToday() {
+    public ArrayList<Day> getDays(LocalDate startWeek) {
         ArrayList<Day> days = new ArrayList<>();
-        LocalDate date = LocalDate.now().with(DayOfWeek.MONDAY);
         for (int i = 0; i < DAYS_COUNT; i++) {
-            days.add(new Day(date.plusDays(i)));
+            days.add(new Day(startWeek.plusDays(i)));
         }
 
         LocalDate secondDate = days.get(1).getDate();
@@ -29,5 +23,11 @@ public class MockStore implements Store {
                 .add(new Appointment("FooBar", secondDate.atTime(10, 20), secondDate.atTime(11, 40)));
 
         return days;
+    }
+
+    @Override
+    public ArrayList<Day> getDaysWithToday() {
+        LocalDate now = LocalDate.now().with(DayOfWeek.MONDAY);
+        return getDays(now);
     }
 }
