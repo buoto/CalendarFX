@@ -76,9 +76,10 @@ public class AppointmentDetails implements Initializable {
     }
 
     public void handleSave(ActionEvent actionEvent) {
+        boolean isNew = false;
         if (appointment == null) {
             appointment = new Appointment();
-            day.appointmentsProperty().add(appointment);
+            isNew = true;
         }
         LocalDate date = day.getDate();
 
@@ -91,6 +92,11 @@ public class AppointmentDetails implements Initializable {
         Integer endHour = (Integer) endTimeHour.getTextFormatter().getValue();
         Integer endMinute = (Integer) endTimeMinute.getTextFormatter().getValue();
         appointment.setEnd(date.atTime(endHour, endMinute));
+
+        if (isNew) {
+            day.appointmentsProperty().add(appointment);
+        }
+
         closeParentWindow(actionEvent);
     }
 

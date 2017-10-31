@@ -3,13 +3,10 @@ package application.model.store;
 import application.model.Appointment;
 import application.model.Day;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class MockStore implements Store {
-
-    private static final int DAYS_COUNT = 28;
+public class MockStore extends Store {
 
     @Override
     public ArrayList<Day> getDays(LocalDate startWeek) {
@@ -25,9 +22,4 @@ public class MockStore implements Store {
         return days;
     }
 
-    @Override
-    public ArrayList<Day> getDaysWithToday() {
-        LocalDate now = LocalDate.now().with(DayOfWeek.MONDAY);
-        return getDays(now);
-    }
 }

@@ -7,25 +7,26 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Appointment {
+public class Appointment implements Serializable {
 
-    private final StringProperty name;
-    private final ObjectProperty<LocalDateTime> start;
-    private final ObjectProperty<LocalDateTime> end;
+    private transient StringProperty name = new SimpleStringProperty("");
+    private transient ObjectProperty<LocalDateTime> start = new SimpleObjectProperty<>(LocalDateTime.MIN);
+    private transient ObjectProperty<LocalDateTime> end = new SimpleObjectProperty<>(LocalDateTime.MAX);
 
     public Appointment(String name, LocalDateTime start, LocalDateTime end) {
-        this.name = new SimpleStringProperty(name);
-        this.start = new SimpleObjectProperty<>(start);
-        this.end = new SimpleObjectProperty<>(end);
+        this.name.setValue(name);
+        this.start.setValue(start);
+        this.end.setValue(end);
     }
 
     public Appointment() {
-        this.name = new SimpleStringProperty();
-        this.start = new SimpleObjectProperty<>(LocalDateTime.MIN);
-        this.end = new SimpleObjectProperty<>(LocalDateTime.MIN);
     }
 
     @Override
@@ -77,5 +78,22 @@ public class Appointment {
 
     public ObjectProperty<LocalDateTime> endProperty() {
         return end;
+    }
+
+    private void writeObject(ObjectOutputStream s) throws IOException {
+        s.defaultWriteObject();
+        s.writeUTF(name.getValueSafe());
+        s.writeObject(start.getValue());
+        s.writeObject(end.getValue());
+    }
+
+
+    private void readObject(ObjectInputStream s) throws IOException, ClassNotFoundException {
+        name = new SimpleStringProperty("");
+        start = new SimpleObjectProperty<>(LocalDateTime.MIN);
+        end = new SimpleObjectProperty<>(LocalDateTime.MAX);
+        name.setValue(s.readUTF());
+        start.setValue((LocalDateTime) s.readObject());
+        end.setValue((LocalDateTime) s.readObject());
     }
 }

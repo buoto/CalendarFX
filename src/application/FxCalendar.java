@@ -1,6 +1,6 @@
 package application;
 
-import application.model.store.MockStore;
+import application.model.store.FileStore;
 import application.model.store.Store;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +19,7 @@ public class FxCalendar extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxcalendar.fxml"));
-        Store store = new MockStore();
+        Store store = new FileStore();
 
         loader.setControllerFactory((Class<?> type) -> {
             try {

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -38,12 +39,12 @@ public class CalendarController implements Initializable {
     }
 
     private String getWeekname(int weekNumber) {
-        int dayNumber = weekNumber * 7;
+        int dayNumber = Period.ofWeeks(weekNumber).getDays();
         if (days.size() <= dayNumber) {
             return "";
         }
         return String.format("W%02d\n%d",
-                days.get(dayNumber).getDate().getDayOfYear() / 7 + 1,
+                days.get(dayNumber).getDate().getDayOfYear() / Period.ofWeeks(1).getDays() + 1,
                 days.get(dayNumber).getDate().getYear()
         );
     }

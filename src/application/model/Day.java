@@ -10,15 +10,22 @@ import javafx.collections.transformation.SortedList;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collection;
 import java.util.Comparator;
 
 public class Day {
     private final ObjectProperty<LocalDate> date;
 
-    private final ListProperty<Appointment> appointments = new SimpleListProperty<>(FXCollections.observableArrayList());
+    private final ListProperty<Appointment> appointments;
 
     public Day(LocalDate date) {
         this.date = new SimpleObjectProperty<>(date);
+        this.appointments = new SimpleListProperty<>(FXCollections.observableArrayList());
+    }
+
+    public Day(LocalDate date, Collection<Appointment> appointments) {
+        this.date = new SimpleObjectProperty<>(date);
+        this.appointments = new SimpleListProperty<>(FXCollections.observableArrayList(appointments));
     }
 
     public LocalDate getDate() {
