@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.util.ArrayList?>
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="2.0" vgap="2.0"
-          xmlns="http://javafx.com/javafx/8" fx:controller="application.CalendarController">
+          xmlns="http://javafx.com/javafx/8" fx:controller="application.CalendarController" fx:id="root">
     <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="6.25"/>
         <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" percentWidth="12.5"/>

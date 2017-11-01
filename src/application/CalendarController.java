@@ -3,6 +3,7 @@ package application;
 import application.model.Day;
 import application.model.store.Store;
 import javafx.beans.binding.Bindings;
+import javafx.beans.binding.ObjectBinding;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -11,8 +12,10 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.GridPane;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -25,6 +28,8 @@ public class CalendarController implements Initializable {
     public final StringProperty fourthWeekname = new SimpleStringProperty("");
     private final ListProperty<Day> days = new SimpleListProperty<>(FXCollections.observableArrayList());
     private final Store store;
+
+    public GridPane root;
     @FXML
     private ArrayList<DayComponent> dayComponents;
 
@@ -36,6 +41,7 @@ public class CalendarController implements Initializable {
         secondWeekname.bind(Bindings.createStringBinding(() -> getWeekname(1), days));
         thirdWeekname.bind(Bindings.createStringBinding(() -> getWeekname(2), days));
         fourthWeekname.bind(Bindings.createStringBinding(() -> getWeekname(3), days));
+
     }
 
     private String getWeekname(int weekNumber) {
@@ -68,11 +74,14 @@ public class CalendarController implements Initializable {
         days.addAll(daysWithToday);
 
         int i = 0;
+        final LocalDate now = LocalDate.now();
         for (DayComponent day : dayComponents) {
             if (day.dayProperty().isBound()) {
                 day.dayProperty().unbind();
             }
-            day.dayProperty().bind(Bindings.valueAt(days, i++));
+            final ObjectBinding<Day> dayI = Bindings.valueAt(days, i++);
+            day.styleProperty().bind(Bindings.createStringBinding(() -> (dayI.get().getDate().equals(now)) ? "-fx-background-color: pink;" : "", dayI));
+            day.dayProperty().bind(dayI);
         }
     }
 

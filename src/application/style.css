@@ -1,5 +1,5 @@
 .root {
-    -fx-font-size: 16px;
+    /*-fx-font-size: 16px;*/
 }
 
 .root * {
@@ -36,7 +36,7 @@
 .day__name,
 .day__appointment {
     -fx-alignment: top-center;
-    -fx-font-size: 9px;
+    /*-fx-font-size: 9px;*/
 }
 
 .day__name {

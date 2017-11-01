@@ -3,6 +3,8 @@ package application;
 import application.model.store.FileStore;
 import application.model.store.Store;
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +20,11 @@ public class FxCalendar extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        primaryStage.setMaxWidth(1500);
+        primaryStage.setMaxHeight(600);
+
+        primaryStage.setMinWidth(500);
+        primaryStage.setMinHeight(200);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxcalendar.fxml"));
         Store store = new FileStore();
 
@@ -47,5 +54,10 @@ public class FxCalendar extends Application {
         primaryStage.setTitle("ERES3");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        ReadOnlyDoubleProperty width = scene.widthProperty();
+        root.styleProperty().bind(Bindings.createStringBinding(() -> String.format("-fx-font-size: %dpx", (int) width.get() / 80), width));
+
     }
+
 }
