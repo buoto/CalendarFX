@@ -87,7 +87,7 @@ public class FileStore extends Store {
                 Appointment appointment = (Appointment) objectInputStream.readObject();
                 registerAppointment(appointment);
             }
-        } catch (EOFException e) {
+        } catch (EOFException | FileNotFoundException e) {
             // OK
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

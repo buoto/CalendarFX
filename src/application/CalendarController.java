@@ -80,7 +80,7 @@ public class CalendarController implements Initializable {
                 day.dayProperty().unbind();
             }
             final ObjectBinding<Day> dayI = Bindings.valueAt(days, i++);
-            day.styleProperty().bind(Bindings.createStringBinding(() -> (dayI.get().getDate().equals(now)) ? "-fx-background-color: pink;" : "", dayI));
+            day.styleProperty().bind(Bindings.createStringBinding(() -> (dayI.get() != null && dayI.get().getDate().equals(now)) ? "-fx-background-color: pink;" : "", dayI));
             day.dayProperty().bind(dayI);
         }
     }
